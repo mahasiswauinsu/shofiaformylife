@@ -1,0 +1,477 @@
+Delivered-To: mahasiswauinsu007@gmail.com
+Received: by 2002:a17:90a:282:0:0:0:0 with SMTP id w2csp2266085pja;
+        Sun, 17 Nov 2019 19:00:54 -0800 (PST)
+X-Google-Smtp-Source: APXvYqylmWwRBTltWefPiKxXwWOCgpgKt3kELhr6KG+zohrS/ITq+dAPHNqsZZbCHsCFJ4aqV22s
+X-Received: by 2002:a63:a34d:: with SMTP id v13mr3227728pgn.343.1574046054752;
+        Sun, 17 Nov 2019 19:00:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1574046054; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QS6k6OLoeOstqPbHsYX/didDehDi7ZreU228FXZNOTUWeZVXXjajTVRmrAAQn9vpIw
+         Kw6Ik928xarKa0bDWqbSxRarr9+vmQo4rtQxTAPGjWJQZr8xbmARb0fuwcx6ZJqJ7EyD
+         jYfeBGdCs+1gbfk+3GaCYV1D8QiGB3VjfI4b+vVgtojBBtkcdHvMKSSFKOfIMP5puxT5
+         Zvs383eG9sFSBSRtLKi2QfCro6lQtSqDX0zBXfUiKZUrXi9W8R2WazIOp2H/WJnCw/Te
+         8QyHLxtWvgCUOv+yfoCv7+RVUTIzs8y3TLYWnwdrBVIP/24FZOeFEx+f/egoz1uUxwao
+         jyZg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:mime-version:date:reply-to:to:from:subject
+         :dkim-signature:dkim-signature;
+        bh=u6iUHe2G/9HCL9zf6gkul6gZ9bCFgbRdZMgJdr6HKak=;
+        b=XiiGbfeXLDbxyLNdEkig9h13n2reeeSs1Vg2DRP845abfpSA1IIVGXyxpg/ylBWfVh
+         mpfbLxaR/Afbjjxvnq5+Z63fnHh5tTr+fbGscF+aBxvFmY8UI7p/Ccu5L6TNxQEBKOMc
+         hmHtt2YwTDfh4A/w6hEJrSgz63Qt0QQGuFpcS4n02n+O4Vb90D2xgdX0xuDuFw0oDCD0
+         m0wXVqnOX+Zalli+DsUw9cFereWHIj8uvsTncX2rMjteWx2POwOnsrujcY9JZqjra+3u
+         ROzH7Vn5QRDabJUpSxu0BTcU+K3KxsH3OnEafVu6798VxMRSUBvpuC+hu2IF4vA+zq1y
+         Qo1Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@users.litmus.com header.s=cm header.b="WQyN+/0P";
+       dkim=pass header.i=@cmail2.com header.s=cs2013 header.b=qu+VrwIj;
+       spf=pass (google.com: domain of litmus-nlhxdk1l1i@cmail20.com designates 204.75.142.5 as permitted sender) smtp.mailfrom=Litmus-nlhxdk1l1i@cmail20.com;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=users.litmus.com
+Return-Path: <Litmus-nlhxdk1l1i@cmail20.com>
+Received: from mx5.h.outbound.createsend.com (mx5.h.outbound.createsend.com. [204.75.142.5])
+        by mx.google.com with ESMTPS id h28si19919871pfr.141.2019.11.17.19.00.54
+        for <mahasiswauinsu007@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 17 Nov 2019 19:00:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of litmus-nlhxdk1l1i@cmail20.com designates 204.75.142.5 as permitted sender) client-ip=204.75.142.5;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@users.litmus.com header.s=cm header.b="WQyN+/0P";
+       dkim=pass header.i=@cmail2.com header.s=cs2013 header.b=qu+VrwIj;
+       spf=pass (google.com: domain of litmus-nlhxdk1l1i@cmail20.com designates 204.75.142.5 as permitted sender) smtp.mailfrom=Litmus-nlhxdk1l1i@cmail20.com;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=users.litmus.com
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=cm; d=users.litmus.com;
+ h=Subject:From:To:Reply-To:Date:MIME-Version:Content-Type:Message-ID; i=hello@users.litmus.com;
+ bh=KaO+90YrmH3u76Yc6mmFQwLTFFM=;
+ b=WQyN+/0Po4A3iHQW1j58J/A3iiWaOcg8BFfIW4kGakpAsiaCNJrfR1qazOLVlbpUS7/x1l3KrqZM
+   /uYhjaUdXJmWkqd+sQ5S4RKHJ3e3xGt95rPwaAtNwboMwOQhCD6WKqIqDjW0aL16bssVP3JI764m
+   BLEnpOFXNrg2cYrtz6w=
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; s=cs2013; d=cmail2.com;
+ h=Subject:From:To:Reply-To:Date:MIME-Version:Content-Type:Message-ID;
+ bh=KaO+90YrmH3u76Yc6mmFQwLTFFM=;
+ b=qu+VrwIjhnXQZr/+rK9VUn6rsN7Bu9v0NSgFqFeXKFJgvqYxZ6YHEfLK2EpyCtvf2Zx6OVmZPe/q
+   5XEkAfugvMdN1IPOm795GEmCLP6raIHDxBuKMgu1GTY/oo7l24SY+Tb8tnQhT80HA3EO2HZ3daYU
+   C9AQnrVsqjhQhkCpRVw=
+Subject: Account alert: There's a problem with your payment
+From: "Litmus" <hello@users.litmus.com> 
+To: "mahasiswauinsu007@gmail.com" <mahasiswauinsu007@gmail.com>
+Reply-To: hello@litmus.com
+Date: Mon, 18 Nov 2019 14:00:50 +1100
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_2d0f1302-1188-48fa-8b95-a64ac12de1ce_"; charset=utf-8
+X-Mailer: Create Send
+X-Complaints-To: abuse@cmail20.com
+X-Tx-Signature: a00bd76c-09af-11ea-89fc-5b886fcb80c2.i.
+Message-ID: <cm.1400501003336.nlhxdk.l.i.a00bd76c09af11ea89fc5b886fcb80c2@cmail20.com>
+
+--_2d0f1302-1188-48fa-8b95-a64ac12de1ce_
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+There Was a Problem Taking Payment for Your Account
+
+Hi there,
+
+We=E2=80=99re having trouble taking payment for your Litmus subscription.=
+ The card we have on file for your account was declined:
+************1890
+
+
+
+But don=E2=80=99t worry=E2=80=94you can easily update your payment inform=
+ation to ensure that you continue to have access to your Litmus account.
+
+Update your credit card =E2=86=92
+https://litmus.com/billing?utm_campaign=3Ddunning&utm_source=3Demail&utm_=
+medium=3Dtriggered&utm_content=3Dd0
+
+If you have any questions or need help updating your billing information,=
+ please email us at  billing@litmus.com=20
+
+Thanks,
+Nichole Robbins
+Revenue Operations Manager
+
+------------------
+
+Litmus
+https://litmus.com?utm_campaign=3Ddunning&utm_source=3Demail&utm_medium=3D=
+triggered&utm_content=3Dd0
+
+675 Massachusetts Ave.
+Cambridge, MA 02139, USA=20
+
+You=E2=80=99re receiving this email because you have a Litmus account but=
+ your payment could not be taken.
+
+--_2d0f1302-1188-48fa-8b95-a64ac12de1ce_
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html lang=3D"en">
+<head>
+<title>Litmus</title>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8" =
+/>
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<style type=3D"text/css">
+a[x-apple-data-detectors] {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+    /* BOILERPLATE STYLES */
+    #outlook a{padding:0;}
+    .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+    .ExternalClass, .ExternalClass span, .ExternalClass td, .ExternalClas=
+s div {line-height: 100%;}
+    body, table, td, a{-webkit-text-size-adjust:100%; -ms-text-size-adjus=
+t:100%;}
+    table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+    img {-ms-interpolation-mode:bicubic;}
+    body {height:100% !important; margin:0; padding:0; width:100% !import=
+ant;}
+    img {border:0; height:auto; line-height:100%; outline:none; text-deco=
+ration:none;}
+    /* LINK STYLES */
+    .appleFooter a {color:#999999 !important; text-decoration: none !impo=
+rtant;}
+    .link-hover:hover {text-decoration: none !important;}
+    /* WEB FONTS */
+    @media screen {
+        @font-face {
+            font-family: 'proxima_nova_rgregular';
+            src: url('https://litmus.com/fonts/Emails/proximanova-regular=
+-webfont.eot');
+            src: url('https://litmus.com/fonts/Emails/proximanova-regular=
+-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('https://litmus.com/fonts/Emails/proximanova-regular=
+-webfont.woff') format('woff'),
+                 url('https://litmus.com/fonts/Emails/proximanova-regular=
+-webfont.ttf') format('truetype'),
+                 url('https://litmus.com/fonts/Emails/proximanova-regular=
+-webfont.svg#proxima_nova_rgregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'proxima_nova_rgbold';
+            src: url('https://litmus.com/fonts/Emails/proximanova-bold-we=
+bfont.eot');
+            src: url('https://litmus.com/fonts/Emails/proximanova-bold-we=
+bfont.eot?#iefix') format('embedded-opentype'),
+                 url('https://litmus.com/fonts/Emails/proximanova-bold-we=
+bfont.woff') format('woff'),
+                 url('https://litmus.com/fonts/Emails/proximanova-bold-we=
+bfont.ttf') format('truetype'),
+                 url('https://litmus.com/fonts/Emails/proximanova-bold-we=
+bfont.svg#proxima_nova_rgbold') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+       =20
+        .cta {
+            border: none !important;
+        }
+    }
+   =20
+    /* MEDIA QUERY */
+    @media screen and (min-width: 501px) {
+        .container {
+            width: 500px !important;
+        }
+       =20
+        .section-padding {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }  =20
+   =20
+    @media screen and (max-width: 500px), screen and (max-device-width: 5=
+00px) {
+        .logo {
+            text-align: left;
+            padding: 20px 0 20px 0 !important;
+        }
+   =20
+        .logo img{
+             margin:0 auto!important;
+        }
+       =20
+        .mobile-hide {
+            display: none;
+        }
+        .container, .responsive-table {
+            width: 100% !important;
+            word-break: break-word;
+        }
+        .block-padding {
+            padding: 10px 5% !important;
+            text-align: left;
+        }
+        .section-padding {
+            padding: 25px 15px !important;
+        }
+        .padding-wrapper {
+            padding: 15px 10px !important;
+        }
+     =20
+        .no-padding {
+            padding: 0px !important;
+        }
+        .max100 {
+            max-width:100% !important;
+        }
+       =20
+        .max95 {
+            max-width: 95% !important;
+        }
+    }
+   =20
+    @media screen and (-webkit-min-device-pixel-ratio: 0), screen and (mi=
+n--moz-device-pixel-ratio: 0) {
+       =20
+        #font-weight-normal {
+            font-weight: normal !important;
+        }
+       =20
+    }
+</style>
+</head>
+<body style=3D"background-color: #f8f9fc;" bgcolor=3D"#f8f9fc">
+   =20
+     =20
+          <div style=3D"display:none;font-size:1px;color:#333333;line-hei=
+ght:1px;font-family:Cambria, 'Hoefler Text', 'Liberation Serif', Times, '=
+Times New Roman', serif;max-height:0px;max-width:0px;opacity:0;overflow:h=
+idden; mso-hide: all;">We are unable to process the payment for your Litm=
+us subscription. Please update your payment information. </div>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" border=3D"0">
+    <tr>
+        <td bgcolor=3D"#33373e" align=3D"center">
+            <!--[if (gte mso 9)|(IE)]>
+            <table width=3D"500" align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0">
+                <tr>
+                    <td>
+            <![endif]-->
+            <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bor=
+der=3D"0" style=3D"max-width: 500px;" class=3D"container">
+               =20
+                <tr>
+                    <td style=3D"padding: 15px 0px;" align=3D"center">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%">
+                            <tr>
+                                <td align=3D"center">
+                                    <a data-click-track-id=3D"5394" href=3D=
+"https://litmus.cmail20.com/t/n/i-l-a00bd76c09af11ea89fc5b886fcb80c2-=
+l-r-r-l/" target=3D"_blank"><img src=3D"http://i1.cmail20.co=
+m/ei/i/CB/C03/A37/020618/csimport/litmus_logo_white_0.png" width=3D"130" =
+height=3D"48" style=3D"font-family: 'proxima_nova_rgregular', Proxima Nov=
+a, Helvetica, Arial, sans-serif; color: #ffffff; text-transform: uppercas=
+e; letter-spacing: 1px; font-size: 20px; display: block; border: 0px;" bo=
+rder=3D"0"></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <tr>
+        <td align=3D"center" style=3D"padding: 50px 15px;" bgcolor=3D"#f8=
+f9fc" class=3D"section-padding">
+            <!--[if (gte mso 9)|(IE)]>
+            <table width=3D"500" align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0">
+                <tr>
+                    <td>
+            <![endif]-->
+            <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bor=
+der=3D"0" style=3D"max-width: 500px;" class=3D"container">
+                <tr>
+                    <td align=3D"center">
+                        <table cellpadding=3D"0" cellspacing=3D"0" border=
+=3D"0" width=3D"100%">
+                            <tr>
+                                <td style=3D"padding: 30px 25px; margin:0=
+; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border: 1px solid #d5dadf; bord=
+er-radius: 3px;" bgcolor=3D"#ffffff" align=3D"center" class=3D"padding-wr=
+apper">
+                                    <table border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" width=3D"100%">
+                                        <tr>
+                                            <td align=3D"center" style=3D=
+"font-size: 30px; font-family: 'proxima_nova_rgbold', Proxima Nova, Helve=
+tica, Arial, sans-serif; color: #353a3e; font-weight: bold; word-break: b=
+reak-word;" class=3D"block-padding" id=3D"font-weight-normal">There Was a=
+ Problem Taking Payment for Your Account</td>
+                                        </tr>
+                                        <tr>
+                                            <td align=3D"left" style=3D"p=
+adding: 25px 0 0 0; font-size: 16px; line-height: 25px; font-family: 'pro=
+xima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif; color: =
+#7f8c8d;" class=3D"block-padding">
+                         Hi there,     <br>
+<br>
+             =20
+                       We&rsquo;re having trouble taking payment for your=
+ Litmus subscription. The card we have on file for your account was decli=
+ned:
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=3D"center" style=3D=
+"padding: 25px 0 0 0; font-size: 16px; line-height: 25px; font-family: Mo=
+naco, 'Lucida Console', 'Courier New', Courier; color: #7f8c8d;" class=3D=
+"block-padding">************1890
+                                            </td>
+                                        </tr>
+                                     <tr>
+                                            <td align=3D"left" style=3D"p=
+adding: 25px 0 0 0; font-size: 16px; line-height: 25px; font-family: 'pro=
+xima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif; color: =
+#7f8c8d;" class=3D"block-padding">But don&rsquo;t worry&mdash;you can eas=
+ily <a href=3D"https://litmus.cmail20.com/t/n/i-l-a00bd76c09af11ea89fc5b8=
+86fcb80c2-l-y-r-l/" style=3D"text-decoration: underline;=
+ color: #0088cc;" class=3D"link-hover">update your payment information</a=
+> to ensure that you continue to have access to your Litmus account.  </t=
+d>
+                                        </tr>      =20
+                                                <tr>
+                                            <td align=3D"center" style=3D=
+"padding: 25px 0 0px 0;" class=3D"no-padding">
+                                                <table cellspacing=3D"0" =
+cellpadding=3D"0" border=3D"0" width=3D"100%" class=3D"responsive-table">=
+
+                                                    <tr>
+                                                        <td align=3D"cent=
+er" class=3D"padding-wrapper">
+                                                            <table>
+                                                                <tr>
+                                                                    <td a=
+lign=3D"center" style=3D"border-radius: 36px;" bgcolor=3D"#62be7f">
+                                                                        <=
+a href=3D"https://litmus.cmail20.com/t/n/i-l-a00bd76c09af11ea89fc5b886fcb=
+80c2-l-j-r-l/" target=3D"_blank" style=3D"font-size: 18p=
+x; font-family: 'proxima_nova_rgregular', Proxima Nova, Helvetica, Arial,=
+ sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; =
+border-radius: 36px; padding: 16px 28px; border: 1px solid #62be7f; displ=
+ay: inline-block;" class=3D"cta">Update your credit card &rarr;</a>
+                                                                    </td>=
+
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                   <tr>
+                                            <td align=3D"left" style=3D"p=
+adding: 25px 0 0 0; font-size: 16px; line-height: 25px; font-family: 'pro=
+xima_nova_rgregular', Proxima Nova, Helvetica, Arial, sans-serif; color: =
+#7f8c8d;" class=3D"block-padding">=20
+If you have any questions or need help updating your billing information,=
+ please email us at <a href=3D"mailto:billing@litmus.com?subject=3DI%20ha=
+ve%20a%20question%20about%20my%20Litmus%20account" style=3D"text-decorati=
+on: underline; color: #0088cc;" class=3D"link-hover">billing@litmus.com</=
+a>.<br>
+<br>
+Thanks,<br>
+Nichole Robbins<br>
+Revenue Operations Manager<br>
+Litmus
+                                            </td>
+                                        </tr>
+                                       =20
+                                      =20
+                                      =20
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+    <tr>
+        <td align=3D"center" style=3D"padding: 0 15px;" bgcolor=3D"#f8f9f=
+c" class=3D"no-padding">
+            <!--[if (gte mso 9)|(IE)]>
+            <table width=3D"500" align=3D"center" cellpadding=3D"0" cells=
+pacing=3D"0" border=3D"0">
+                <tr>
+                    <td>
+            <![endif]-->
+            <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" bor=
+der=3D"0" style=3D"max-width: 500px;" class=3D"container">
+                <tr>
+                    <td align=3D"center" style=3D"padding-bottom: 20px;">=
+
+                        <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" width=3D"500" class=3D"responsive-table">
+                            <tr>
+                                <td align=3D"center" style=3D"font-size: =
+13px; line-height: 18px; font-family: 'proxima_nova_rgregular', Proxima N=
+ova, Helvetica, Arial, sans-serif; color: #aaaaaa;">
+                                    <a data-click-track-id=3D"4680" href=3D=
+"https://litmus.cmail20.com/t/n/i-l-a00bd76c09af11ea89fc5b886fcb80c2-=
+l-t-r-l/" target=3D"_blank"><img src=3D"http://i2.cmail20.co=
+m/ei/i/CB/C03/A37/020618/csimport/litmus_logo_footer_1.png" width=3D"30" =
+height=3D"30" border=3D"0" style=3D"display: block;"></a><br>
+                                    <span class=3D"appleFooter" style=3D"=
+color: #aaaaaa;">675 Massachusetts Ave.<br>
+Cambridge, MA 02139, USA</span></td>
+                            </tr>
+                            <tr>
+                                <td align=3D"left" style=3D"font-size: 13=
+px; line-height: 18px; font-family: 'proxima_nova_rgregular', Proxima Nov=
+a, Helvetica, Arial, sans-serif; color:#aaaaaa; padding-top: 25px;" class=
+=3D"block-padding">You&rsquo;re receiving this email because you have a L=
+itmus account but your payment could not be taken.</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                </tr>
+            </table>
+            <![endif]-->
+        </td>
+    </tr>
+</table>
+<img src=3D"https://litmus.cmail20.com/t/n/i-o-a00bd76c09af11ea89fc5b886f=
+cb80c2-l-l/o.gif" style=3D"visibility: hidden !important=
+; display: block !important; height:1px !important; width:1px !important;=
+ border: 0 !important; margin: 0 !important; padding: 0 !important" width=
+=3D"1" height=3D"1" border=3D"0" alt=3D"" /></body>
+</html>=
+
+
+
+
+--_2d0f1302-1188-48fa-8b95-a64ac12de1ce_--
